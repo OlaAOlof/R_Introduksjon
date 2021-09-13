@@ -1,0 +1,96 @@
+---
+title: "R Introduksjon"
+output: html_notebook
+---
+
+# Introduction to R
+
+```{r}
+2+2
+x <- 2+2
+(y <- 3+3)
+#remove (Z = 4)
+rm(z)
+x + y
+x * y
+x - y
+x/y
+x^y
+```
+
+## Combine
+
+```{r}
+x <- c(2, 7, 9, 13)
+y <- c(6, 2)
+y <- c(y, 3)
+y
+(z <- x + y)
+```
+
+## Fortann(???), L etc
+for (i 1 to 4)
+z_1 = x_i + y_i
+
+## Typer av vektorer
+
+```{r}
+class(x)
+typeof(x)
+x <- 2L #Heilt tal, ingen desimal
+typeof(x)
+x <- 2. #Desimal
+typeof(x)
+x <- 2L
+y <- 4.1
+typeof(x)
+typeof(y)
+z <- c(x, y)
+z <- c(x, y, "s")
+typeof(z) #Tekststreng, alt blir konvertert til tekst
+z[1] #Svaret er tekst, markert med "", grunna teksttrengen
+z[2] #Svaret er tekst, markert med "", grunna teksttrengen
+x
+y
+t <- x + y
+typeof(t)
+# z[1] + z[2] #Error pga ikkje-nummerisk. Kan ikkje rekna med tekst.
+```
+
+R jobber med vektorar. Alle element må vere av same type. R konverterer automatisk til meir generell type. Den mest generelle typen er tekst.
+
+## List kategori
+```{r}
+l <- list((x = 1:4), y= c(TRUE, FALSE, FALSE), z = c("aa", "ba"), zz = c(2.1, 4.33)) # ":" er ein hurtigtast for fom. x tom. y. Eks. her: 1, 2, 3 og 4.
+str(l) #str -- Kort for Structure. Lage orden på lista.
+```
+
+```{r}
+l[1] #Første element
+l[2] #Andre element
+l[c(2, 4)] #Andre og Fjerde element
+l[[2]] #Dobbel klamme betyr: Gå inn i Andre element og hent ut det som er der; med andre ord >kun< innholdet.
+```
+
+## Dataframes
+Dataframes har ein nær slektning i Tidyverse, som heiter tibble.
+
+Ein tibble/dataframe er ein liste av vektorar med *same lengde*
+
+```{r}
+df1 <- data.frame(x = 1:1000, y = rnorm(1000))
+df1_as_tib <- tibble(df1)
+#Prefer tibble
+tib1 <- tibble(x = 1:1000, y = rnorm(1000), z = rep(c("aa", "bb", 500)))
+tib1
+View(tib1)
+```
+
+## Help
+
+```{r}
+# Siste (Run All Above)
+```
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
